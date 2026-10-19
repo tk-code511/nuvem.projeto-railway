@@ -14,7 +14,7 @@ app.get("/equipe", function(req, res){
 // Rota 3: Página com parâmetro (Exemplo: /usuario/tiago)
 app.get("/usuario/:nome", function(req, res){
     let nomeUsuario = req.params.nome;
-    res.send("<h1>Perfil do Usuário</h1><p>Bem-vindo, <strong>" + nomeUsuario + "</strong>!</p>");
+    res.send("<h1>Perfil do Usuário</h1><p>Muito bem-vindo, <strong>" + nomeUsuario + "</strong>!</p>");
 });
 
 // Mantive a configuração de porta do professor, que é excelente para o deploy no Railway e AWS
