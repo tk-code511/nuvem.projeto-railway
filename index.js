@@ -1,41 +1,27 @@
-const express = require("express"); //importa o mÃ³dulo express neste arquivo
-const app = express(); //iniciando o express
+const express = require("express"); // importa o módulo express neste arquivo
+const app = express(); // iniciando o express
 
-//criando a rota inicial
-app.get("/", function(req,res){
-    res.send("<h1>Bem vindo ao meu site!</h1>");
-})
+// Rota 1: Página inicial
+app.get("/", function(req, res){
+    res.send("<h1>Bem-vindo ao Projeto de Nuvem!</h1><p>Esta é a página inicial da nossa aplicação.</p>");
+});
 
-//rota do cadastro de produtos
-app.get("/produtos", function(req,res){
-    res.send("<h1>Lista de Produtos!</h1>");
-})
+// Rota 2: Página de equipe/sobre
+app.get("/equipe", function(req, res){
+    res.send("<h1>Nossa Equipe</h1><p>Esta aplicação foi desenvolvida para a disciplina de Desenvolvimento de Software em Nuvem.</p>");
+});
 
-//rota com parametro 
-app.get("/consulta/:parametro", function(req,res){
-    //req --> dados enviados pelo cliente
-    //res --> resposta enviada pelo servidor de volta ao cliente
-    res.send("retorno consulta:" + req.params.parametro);
-})
+// Rota 3: Página com parâmetro (Exemplo: /usuario/tiago)
+app.get("/usuario/:nome", function(req, res){
+    let nomeUsuario = req.params.nome;
+    res.send("<h1>Perfil do Usuário</h1><p>Bem-vindo, <strong>" + nomeUsuario + "</strong>!</p>");
+});
 
-
-//rota com parametro opcional
-app.get("/cadastro/{:nome}", function(req,res){
-    //req --> dados enviados pelo cliente
-    var nome = req.params.nome;
-    if (nome){
-        res.send("<h1>produto " + nome + " criado!</h1>");
-    }else{
-        res.send("produto criado!");
-    }
-    
-})
-
-
-app.listen(process.env.PORT ?? 3000,function(erro){  // cria a aplicaÃ§Ã£o na porta 4000
+// Mantive a configuração de porta do professor, que é excelente para o deploy no Railway e AWS
+app.listen(process.env.PORT ?? 3000, function(erro){  
     if (erro){
-        console.log("Erro ao Iniciar.");
-    }else{
-        console.log("Servidor Iniciado.");
+        console.log("Erro ao Iniciar o servidor.");
+    } else {
+        console.log("Servidor Iniciado com sucesso na porta 3000 ou na porta da nuvem.");
     }
-})
+});
