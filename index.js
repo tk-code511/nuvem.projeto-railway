@@ -8,7 +8,7 @@ app.get("/", function(req, res){
 
 // Rota 2: Página de equipe/sobre
 app.get("/equipe", function(req, res){
-    res.send("<h1>Nossa Equipe</h1><p>Esta aplicação foi desenvolvida para a disciplina de Desenvolvimento de Software em Nuvem.</p>");
+    res.send("<h1>Nossa Equipe</h1><p>Este projeto foi desenvolvida para a disciplina de Desenvolvimento de Software em Nuvem.</p>");
 });
 
 // Rota 3: Página com parâmetro (Exemplo: /usuario/tiago)
